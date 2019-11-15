@@ -60,6 +60,14 @@ public class DemoResource {
         String thisuser = securityContext.getUserPrincipal().getName();
         return "{\"msg\": \"Hello to User: " + thisuser + "\"}";
     }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("userdata")
+    @RolesAllowed("user")
+    public String getUserData() {
+        return "[{\"id\": 100, \"title\": \"How to Learn JavaScript - Vol 1\", \"info\": \"Study hard\" }, {\"id\": 101, \"title\": \"How to Learn ES6\", \"info\": \"Complete all exercises :-)\" }, {\"id\": 102, \"title\": \"How to Learn React\", \"info\": \"Complete all your CA's\" }, {\"id\": 103, \"title\": \"Learn React\", \"info\": \"Don't drink beer(s), until Friday (after four)\" }]";
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
